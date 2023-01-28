@@ -1,0 +1,13 @@
+#pragma kernel CSMain
+
+StructuredBuffer<float> _value1;
+StructuredBuffer<float> _value2;
+
+RWStructuredBuffer<float> _sum;
+
+[numthreads(16,16,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	uint index = id.x+id.y*16;
+	_sum[index] = _value1[index] + _value2[index];
+}
