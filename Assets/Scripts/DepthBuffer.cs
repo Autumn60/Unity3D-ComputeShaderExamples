@@ -29,7 +29,7 @@ public class DepthBuffer : MonoBehaviour
     private void Start()
     {
         _rt_color = new RenderTexture(_resolution.x, _resolution.y, 0, RenderTextureFormat.ARGB32);
-        _rt_depth = new RenderTexture(_resolution.x, _resolution.y, 32, RenderTextureFormat.Depth);
+        _rt_depth = new RenderTexture(_resolution.x, _resolution.y, 32, RenderTextureFormat.Shadowmap);
         
         _cam.SetTargetBuffers(_rt_color.colorBuffer, _rt_depth.depthBuffer);
 

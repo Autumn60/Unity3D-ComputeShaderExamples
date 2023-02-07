@@ -13,6 +13,6 @@ RWStructuredBuffer<float> distance;
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
 	uint index = id.x + id.y * width;
-	int val = 1.0f / (n_f * depthBuffer[id.xy] + f);
+	float val = depthBuffer[id.xy]; //1.0f / (n_f * depthBuffer[id.xy] + f);
 	distance[index] = val;
 }
